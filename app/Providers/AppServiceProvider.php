@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,9 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
-        Gate::define('access-admin', function ($user) {
-            return $user->role_id === 1;
-        });
+        
     }
 
     /**
@@ -26,5 +25,13 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Paginator::useBootstrap();
+
+        Gate::define('access-admin', function ($user) {
+            return $user->role_id === 1;
+        });
+
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
     }
 }
