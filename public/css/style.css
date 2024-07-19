@@ -1,0 +1,32 @@
+.icon-sm
+{
+    font-size: 2rem;
+}
+
+img{
+    object-fit: cover !important ; 
+    
+}
+
+.avatar-lg{
+    height: 150px !important;
+    width: 150px !important;
+    object-fit: cover !important ;  /* border:1px solid gray; */
+}
+
+.td-post{
+    padding-top: 100px;
+}
+
+.paginate{
+    padding-left: 400px;
+}
+
+#uncategorized{
+    font-size: 12px;
+}
+
+.btn-search{
+    display: none;
+}
+
